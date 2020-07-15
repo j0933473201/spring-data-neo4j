@@ -11,7 +11,7 @@ public class JuristicPerson extends BaseNodeEntity {
 
 	// 建立負責人關係
 //	(自然人)-[r:Responsible]->(法人)
-	@Relationship(type = "Responsible", direction = Relationship.INCOMING)
+	@Relationship(type = "responsible", direction = Relationship.INCOMING)
 	private NaturalPerson responPerson;
 
 	// 建立持股關係

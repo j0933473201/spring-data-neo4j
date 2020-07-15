@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.neo4jtest.nodeEntity.BaseNodeEntity;
 import com.example.neo4jtest.nodeEntity.JuristicPerson;
 import com.example.neo4jtest.nodeEntity.NaturalPerson;
 import com.example.neo4jtest.request.ReqBody;
@@ -125,5 +126,31 @@ public class TestController {
 		return jpry.saveAll(npList);
 
 	}
+	
+	/*
+	 * 單純查詢所有的法人node
+	 */
+	@PostMapping(path = "getJuristicPerson/list")
+	public Iterable<JuristicPerson> getJuristicPersonList() {
+
+		return jpry.findAll();
+	}
+	
+	/*
+	 * 單純查詢所有的自然人node
+	 */
+	@PostMapping(path = "getNaturalPerson/list")
+	public Iterable<NaturalPerson> getJNaturalPersonList() {
+
+		return npry.findAll();
+	}
+	
+	@PostMapping(path = "getNaturalPerson/listOne")
+	public Iterable<BaseNodeEntity> getJNaturalPersonListOne() {
+String name1 = "林XX";
+String name2 = "王XX";
+		return jpry.graph(name1, name2);
+	}
+	
 
 }
