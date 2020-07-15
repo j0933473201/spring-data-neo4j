@@ -1,0 +1,12 @@
+#基本設定對應到的neo4j server 
+spring:
+    data:
+        neo4j:
+            uri: bolt://localhost:7687
+            username: neo4j
+            password: test
+      
+server:
+    port: 8080
+    servlet:
+        context-path: /neo4j
